@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "title": "Этап 1. Анализ COMETAL 2.0",
+    "description": "Инвентаризация COMETAL 2.0, карта файла, доменная архитектура и layout patterns.",
+    "status": "completed",
+    "prompts": [
+      {
+        "title": "01_pages.md",
+        "description": "Инвентаризация COMETAL 2.0",
+        "targetFile": "01_pages.md",
+        "sourceFile": "COMETAL 2.0",
+        "promptText": "Через MCP проанализируй весь открытый Figma-файл COMETAL 2.0. Не давай рекомендации по UX/UI. Нужна только инвентаризация. Для каждой страницы укажи: название страницы, количество фреймов, количество секций, количество компонентов, количество вариантов компонентов. Для каждого фрейма укажи: название, размеры, краткое описание назначения. Результат сохрани в Markdown. Название файла: 01_pages.md",
+        "completed": true
+      },
+      {
+        "title": "02_file_map.md",
+        "description": "Карта файла COMETAL 2.0",
+        "targetFile": "02_file_map.md",
+        "sourceFile": "COMETAL 2.0",
+        "promptText": "Через MCP проанализируй страницы файла COMETAL 2.0. Сгруппируй все страницы по категориям: BUSINESS FLOWS, PRODUCT SCREENS, DESIGN SYSTEM, EXPERIMENTS, ARCHIVE. Для каждой страницы объясни: почему она относится к категории, является ли она актуальной, является ли она частью конечного продукта. Результат в Markdown. Название файла: 02_file_map.md",
+        "completed": true
+      },
+      {
+        "title": "03_domain_architecture.md",
+        "description": "Доменная архитектура COMETAL 2.0",
+        "targetFile": "03_domain_architecture.md",
+        "sourceFile": "COMETAL 2.0",
+        "promptText": "В том же файле проанализируй только страницы категории BUSINESS FLOWS и PRODUCT SCREENS. Не анализируй компоненты. Не анализируй визуальный дизайн. Определи основные бизнес-сущности системы. Для каждой сущности определи: связанные страницы, связанные процессы, связи между сущностями. Построй карту системы в формате: Сущность, Описание, Связанные страницы, Связанные сущности, Связанные процессы. В конце выведи итоговую диаграмму SYSTEM MAP с иерархией сущностей и связей. Формат Markdown. Название файла: 03_domain_architecture.md",
+        "completed": true
+      },
+      {
+        "title": "04_layout_patterns.md",
+        "description": "Layout patterns COMETAL 2.0",
+        "targetFile": "04_layout_patterns.md",
+        "sourceFile": "COMETAL 2.0",
+        "promptText": "Проанализируй только PRODUCT SCREENS. Для каждого экрана определи, какой тип интерфейса используется. Используй категории: Dashboard, List, Kanban, Entity Card, Wizard, Form, Table, Modal, Settings, Timeline. Выдели повторяющиеся шаблоны. Для каждого шаблона покажи: название шаблона, структура, пример экранов, количество использований. В конце сформируй список уникальных layout patterns. Формат Markdown. Название файла: 04_layout_patterns.md",
+        "completed": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Этап 2. Анализ COMETAL (Основной)",
+    "description": "Анализ основного продукта: инвентаризация, карта файла и доменная архитектура.",
+    "status": "in_progress",
+    "prompts": [
+      {
+        "title": "01_pages_main.md",
+        "description": "Инвентаризация основного продукта",
+        "targetFile": "01_pages_main.md",
+        "sourceFile": "COMETAL (Основной)",
+        "promptText": "Через MCP проанализируй весь файл COMETAL (Основной).\n\nНе анализируй дизайн.\n\nНужна инвентаризация.\n\nДля каждой страницы:\n\nназвание\nколичество экранов\nколичество секций\nназначение страницы\n\nРезультат:\n\n01_pages_main.md",
+        "completed": false
+      },
+      {
+        "title": "02_file_map_main.md",
+        "description": "Карта файла COMETAL (Основной)",
+        "targetFile": "02_file_map_main.md",
+        "sourceFile": "COMETAL (Основной)",
+        "promptText": "Через MCP проанализируй весь файл COMETAL (Основной).\n\nСгруппируй страницы по категориям:\n\nBUSINESS FLOWS\nPRODUCT SCREENS\nDESIGN SYSTEM\nEXPERIMENTS\nARCHIVE\n\nДля каждой страницы объясни:\n\nпочему относится к категории\nактуальность\nчасть конечного продукта или нет\n\nРезультат:\n\n02_file_map_main.md",
+        "completed": false
+      },
+      {
+        "title": "03_domain_architecture_main.md",
+        "description": "Доменная архитектура основного продукта",
+        "targetFile": "03_domain_architecture_main.md",
+        "sourceFile": "COMETAL (Основной)",
+        "promptText": "Через MCP проанализируй BUSINESS FLOWS и PRODUCT SCREENS файла COMETAL (Основной).\n\nОпредели:\n\nбизнес-сущности\nроли\nпроцессы\nсвязи между сущностями\n\nПострой:\n\nSYSTEM MAP\n\nФормат Markdown.\n\nРезультат:\n\n03_domain_architecture_main.md",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Этап 3. Gap Analysis",
+    "description": "Сравнение COMETAL и COMETAL 2.0: переносы, потери, отсутствующие процессы, роли и сущности.",
+    "status": "not_started",
+    "prompts": [
+      {
+        "title": "04_gap_analysis.md",
+        "description": "Сравнение COMETAL и COMETAL 2.0",
+        "targetFile": "04_gap_analysis.md",
+        "sourceFile": "COMETAL (Основной), COMETAL 2.0",
+        "promptText": "Сравни доменную архитектуру COMETAL (Основной) и COMETAL 2.0.\n\nОпредели:\n\nчто перенесено\nчто не перенесено\nчто потеряно\nкакие процессы отсутствуют\nкакие роли отсутствуют\nкакие сущности отсутствуют\n\nРезультат:\n\n04_gap_analysis.md",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Этап 4. Target Product Architecture",
+    "description": "Целевая архитектура продукта на основании основного COMETAL, COMETAL 2.0 и Gap Analysis.",
+    "status": "not_started",
+    "prompts": [
+      {
+        "title": "05_target_product_architecture.md",
+        "description": "Целевая архитектура продукта",
+        "targetFile": "05_target_product_architecture.md",
+        "sourceFile": "Все результаты предыдущих этапов",
+        "promptText": "На основании COMETAL (Основной), COMETAL 2.0 и Gap Analysis построй целевую архитектуру продукта.\n\nОпредели:\n\nсущности\nроли\nпроцессы\nсвязи\n\nРезультат:\n\n05_target_product_architecture.md",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Этап 5. Template Architecture",
+    "description": "Архитектура экранных шаблонов и reusable patterns на основании Product Architecture.",
+    "status": "not_started",
+    "prompts": [
+      {
+        "title": "06_template_architecture.md",
+        "description": "Архитектура шаблонов экранов",
+        "targetFile": "06_template_architecture.md",
+        "sourceFile": "Product Architecture",
+        "promptText": "На основании Product Architecture построй Template Layer.\n\nОпредели:\n\nDashboard\nList\nEntity Card\nWizard\nKanban\nSettings\n\nДля каждого шаблона:\n\nназначение\nобязательные зоны\nопциональные зоны\nreusable patterns\n\nРезультат:\n\n06_template_architecture.md",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Этап 6. Design System Architecture",
+    "description": "Архитектура дизайн-системы: foundations, components, patterns и templates.",
+    "status": "not_started",
+    "prompts": [
+      {
+        "title": "07_design_system_architecture.md",
+        "description": "Архитектура дизайн-системы",
+        "targetFile": "07_design_system_architecture.md",
+        "sourceFile": "Template Architecture",
+        "promptText": "На основании Template Architecture построй структуру дизайн-системы.\n\nОпредели:\n\nFoundations\n\nComponents\n\nPatterns\n\nTemplates\n\nРезультат:\n\n07_design_system_architecture.md",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Этап 7. Figma Structure",
+    "description": "Будущая структура файлов Figma для COMETAL.",
+    "status": "not_started",
+    "prompts": [
+      {
+        "title": "08_figma_structure.md",
+        "description": "Будущая структура файлов Figma",
+        "targetFile": "08_figma_structure.md",
+        "sourceFile": "Product Architecture, Template Architecture, Design System Architecture",
+        "promptText": "Построй целевую структуру Figma для COMETAL.\n\nВключая:\n\n00 Product Map\n\n01 Business Flows\n\n02 Design System\n\n03 Templates\n\n04 Product\n\n05 Handoff\n\n99 Archive\n\nРезультат:\n\n08_figma_structure.md",
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Этап 8. Migration Plan",
+    "description": "Пошаговый план миграции от текущего состояния к новой архитектуре.",
+    "status": "not_started",
+    "prompts": [
+      {
+        "title": "09_migration_plan.md",
+        "description": "План миграции",
+        "targetFile": "09_migration_plan.md",
+        "sourceFile": "Все результаты предыдущих этапов",
+        "promptText": "Построй пошаговый план миграции от текущего состояния к новой архитектуре.\n\nОпредели:\n\nчто переносим\nчто удаляем\nчто объединяем\nчто проектируем заново\n\nРезультат:\n\n09_migration_plan.md",
+        "completed": false
+      }
+    ]
+  }
+]

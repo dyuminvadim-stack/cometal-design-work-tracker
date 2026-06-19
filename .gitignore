@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+vercel_upload_cometal_tracker/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts

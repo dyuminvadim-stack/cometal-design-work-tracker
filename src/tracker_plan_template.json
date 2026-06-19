@@ -1,0 +1,57 @@
+{
+  "eyebrow": "Design plan",
+  "name": "Design Work Tracker",
+  "intro": "Локальный трекер для ближайшего плана работ по дизайну.",
+  "exportName": "design-work-tracker-export",
+  "taskGroupLabel": "TASKS",
+  "stages": [
+    {
+      "id": 1,
+      "title": "Этап 1. Intake",
+      "description": "Собрать исходные материалы, ограничения и критерии готовности.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "01_intake.md",
+          "description": "Зафиксировать цель, вводные и ожидаемые артефакты",
+          "targetFile": "01_intake.md",
+          "sourceFile": "План работ и комментарии",
+          "promptText": "Собери вводные по плану работ: цель, ограничения, список артефактов, критерии готовности и открытые вопросы. Результат сохрани в 01_intake.md.",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Этап 2. Execution",
+      "description": "Выполнить основные задачи и прикрепить результаты.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "02_execution.md",
+          "description": "Выполнить основной блок работ",
+          "targetFile": "02_execution.md",
+          "sourceFile": "Материалы intake",
+          "promptText": "Разбей основной блок работ на конкретные действия, выполни их по порядку и зафиксируй результат в 02_execution.md.",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Этап 3. Handoff",
+      "description": "Проверить полноту, собрать итоговые материалы и подготовить передачу результата.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "03_handoff.md",
+          "description": "Собрать итоговый статус и следующие шаги",
+          "targetFile": "03_handoff.md",
+          "sourceFile": "Все результаты процесса",
+          "promptText": "Собери итоговый статус: что сделано, какие файлы готовы, какие вопросы остались, какие следующие шаги нужны. Результат сохрани в 03_handoff.md.",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}

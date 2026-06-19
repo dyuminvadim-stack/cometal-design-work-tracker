@@ -1,0 +1,265 @@
+{
+  "eyebrow": "COMETAL design work",
+  "name": "COMETAL Design Work Tracker",
+  "intro": "Пошаговый трекер работ по дизайн-системе, шаблонам, продуктовым экранам и handoff для COMETAL 2.0.",
+  "exportName": "cometal-design-work-tracker-export",
+  "taskGroupLabel": "TASKS",
+  "stages": [
+    {
+      "id": 1,
+      "title": "Этап 1. Foundations v1",
+      "description": "Собираем базовый фундамент дизайн-системы COMETAL 2.0: цвета, типографику, отступы, скругления, тени и иконки. Ориентир по сроку: 2–3 рабочих дня.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "01_foundations_colors_v1.md",
+          "description": "Собрать цветовые токены v1",
+          "targetFile": "01_foundations_colors_v1.md",
+          "sourceFile": "COMETAL 2.0, foundations_audit.md, страницы: Компоненты, КОМПОНЕНТЫ КОНТУР, Навигационное меню, продуктовые экраны",
+          "promptText": "Через MCP проанализируй файл COMETAL 2.0 и используй документ foundations_audit.md. Нужна только работа с цветами. Не анализируй бизнес-процессы и UX. Сформируй Colors v1 для дизайн-системы.\n\nЧто сделать:\n1. Собрать primitive colors на основе реально найденных значений: #0041A0, #002F6C, #005BD1, #292929, #111111, #7A8694, #9FA8B3, #FFFFFF, #F3F6FB, #D6DEE7, #E3E8EF, #DEDEDE, #27AE60, #08823B, #E79600, #BF1D26, #E11111.\n2. Собрать semantic tokens: text/primary, text/secondary, text/tertiary, text/inverse, surface/default, surface/subtle, background/page, border/default, border/subtle, border/strong, brand/primary, brand/hover, brand/active, status/success, status/warning, status/danger, status/info.\n3. Отдельно отметить дубли и конфликтные цвета: #FF0000, #DEDEDE, #D6DEE7, #E3E8EF, #111111, #292929.\n4. Для каждого токена указать: token name, value, usage, source/evidence, status: keep / merge / remove / needs decision.\n5. В конце дать список решений, которые нужно утвердить дизайнером или арт-директором.\n\nФормат результата: Markdown.\nНазвание результата: 01_foundations_colors_v1.md",
+          "completed": false
+        },
+        {
+          "title": "02_foundations_typography_v1.md",
+          "description": "Собрать типографику v1",
+          "targetFile": "02_foundations_typography_v1.md",
+          "sourceFile": "COMETAL 2.0, foundations_audit.md",
+          "promptText": "Через MCP проанализируй файл COMETAL 2.0 и используй документ foundations_audit.md. Нужна только типографика. Не анализируй бизнес-процессы, компоненты и UX.\n\nЧто сделать:\n1. Подтвердить основной шрифт системы: Grtsk Peta.\n2. Найти и описать вторичные/legacy-шрифты: Golos Text, Inter, Plus Jakarta Sans, Roboto, Arial.\n3. Собрать text styles v1:\n- caption / 11 / 16\n- body-sm / 12 / 16\n- body-md / 14 / 20\n- body-lg / 16 / 24\n- title-sm / 20 / 24\n- title-md / 24 / 28\n4. Для каждого стиля указать: name, font family, weight, size, line-height, usage.\n5. Отдельно отметить, где встречаются AUTO line-height, проценты и нестабильные стили.\n6. Сформировать правила: где использовать caption, body, table text, title, labels, controls.\n\nФормат результата: Markdown.\nНазвание результата: 02_foundations_typography_v1.md",
+          "completed": false
+        },
+        {
+          "title": "03_foundations_spacing_radius_v1.md",
+          "description": "Собрать шкалу отступов и скруглений v1",
+          "targetFile": "03_foundations_spacing_radius_v1.md",
+          "sourceFile": "COMETAL 2.0, foundations_audit.md",
+          "promptText": "Через MCP проанализируй файл COMETAL 2.0 и используй документ foundations_audit.md. Нужны только spacing и radius.\n\nЧто сделать по spacing:\n1. Собрать базовую шкалу: 0, 2, 4, 8, 12, 16, 20, 24, 32, 40.\n2. Для каждого значения описать назначение: micro gap, control padding, list gap, card padding, page spacing.\n3. Найти шумовые значения: 6, 7, 10, 17, 18, 29, 38, 94, 100, 197, 208.\n4. Для каждого шумового значения предложить замену или пометить как layout-specific exception.\n\nЧто сделать по radius:\n1. Собрать шкалу: radius-none = 0, radius-xs = 2, radius-sm = 4, radius-md = 8, radius-lg = 12, radius-xl = 16, radius-2xl = 24, radius-pill = 9999.\n2. Отдельно разобрать pill-дубли: 99, 999, 9999, 5000.\n3. Описать, где использовать 4, 8, 12, 16, 24 и pill.\n\nФормат результата: Markdown.\nНазвание результата: 03_foundations_spacing_radius_v1.md",
+          "completed": false
+        },
+        {
+          "title": "04_foundations_shadows_icons_v1.md",
+          "description": "Собрать тени и правила иконок v1",
+          "targetFile": "04_foundations_shadows_icons_v1.md",
+          "sourceFile": "COMETAL 2.0, foundations_audit.md, страницы: Навигационное меню, Компоненты, КОМПОНЕНТЫ КОНТУР",
+          "promptText": "Через MCP проанализируй файл COMETAL 2.0 и используй документ foundations_audit.md. Нужны только shadows и icons.\n\nЧто сделать по shadows:\n1. Собрать elevation scale: shadow/none, shadow/xs, shadow/sm, shadow/md, shadow/lg, shadow/overlay.\n2. Использовать найденные параметры теней как основу, но привести их к единой логике.\n3. Отделить elevation shadows от focus ring.\n4. Отметить odd shadows, которые нужно удалить или проверить.\n\nЧто сделать по icons:\n1. Собрать категории: action, arrows, documents, navigation, status, segment, user.\n2. Зафиксировать размеры: 16, 20, 24.\n3. Зафиксировать naming: icons/<category>/<name>.\n4. Найти raw Vector / Path / Shape / Subtract и отметить как кандидаты на замену named icon components.\n5. Описать правила цвета иконок через semantic tokens: icon/default, icon/muted, icon/active, icon/danger.\n\nФормат результата: Markdown.\nНазвание результата: 04_foundations_shadows_icons_v1.md",
+          "completed": false
+        },
+        {
+          "title": "05_foundations_v1_spec.md",
+          "description": "Собрать итоговую спецификацию Foundations v1",
+          "targetFile": "05_foundations_v1_spec.md",
+          "sourceFile": "01_foundations_colors_v1.md, 02_foundations_typography_v1.md, 03_foundations_spacing_radius_v1.md, 04_foundations_shadows_icons_v1.md",
+          "promptText": "На основе файлов 01_foundations_colors_v1.md, 02_foundations_typography_v1.md, 03_foundations_spacing_radius_v1.md и 04_foundations_shadows_icons_v1.md собери итоговую спецификацию FOUNDATIONS v1.\n\nЧто сделать:\n1. Свести все foundations в одну структуру.\n2. Дать финальный список токенов для переноса в Figma.\n3. Разделить tokens на primitive и semantic.\n4. Дать структуру страницы Figma: FOUNDATIONS / Colors / Typography / Spacing / Radius / Shadows / Icons.\n5. Добавить список открытых решений: что нужно утвердить вручную.\n6. Добавить Definition of Done для Foundations v1.\n\nФормат результата: Markdown.\nНазвание результата: 05_foundations_v1_spec.md",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Этап 2. Аудит компонентов",
+      "description": "Разбираем существующие компоненты COMETAL 2.0: что оставить, что объединить, что пересобрать, что убрать в архив. Ориентир по сроку: 3–5 рабочих дней.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "06_component_inventory.md",
+          "description": "Собрать полный инвентарь компонентов",
+          "targetFile": "06_component_inventory.md",
+          "sourceFile": "COMETAL 2.0, страницы: Компоненты, КОМПОНЕНТЫ КОНТУР, Карточки канбан, Навигационное меню",
+          "promptText": "Через MCP проанализируй файл COMETAL 2.0. Нужен только аудит компонентов. Не анализируй бизнес-процессы и UX.\n\nПроанализируй страницы: Компоненты, КОМПОНЕНТЫ КОНТУР, Карточки канбан, Навигационное меню.\n\nСобери component inventory по категориям:\n- Button\n- IconButton\n- Input\n- Select\n- Dropdown\n- Checkbox\n- Radio\n- Switch\n- Tabs\n- Badge\n- Avatar\n- Tooltip\n- Modal / Popup\n- Table\n- Card\n- Navigation\n- Kanban Card\n- Assignment / Responsible block\n\nДля каждого компонента укажи:\n1. название в Figma;\n2. категория;\n3. количество вариантов;\n4. где используется;\n5. статус: keep / merge / rebuild / archive / unknown;\n6. комментарий.\n\nФормат результата: Markdown с таблицами.\nНазвание результата: 06_component_inventory.md",
+          "completed": false
+        },
+        {
+          "title": "07_component_duplicates_cleanup.md",
+          "description": "Найти дубли и план очистки компонентов",
+          "targetFile": "07_component_duplicates_cleanup.md",
+          "sourceFile": "06_component_inventory.md, COMETAL 2.0",
+          "promptText": "На основе 06_component_inventory.md и проверки COMETAL 2.0 через MCP найди дубли компонентов.\n\nЧто сделать:\n1. Найти компоненты, которые отличаются только названием.\n2. Найти компоненты, которые отличаются только цветом, размером или локальным стилем.\n3. Найти компоненты, которые можно объединить через variants/properties.\n4. Найти компоненты, которые нужно перенести в archive.\n5. Собрать таблицу: duplicate group / current components / target component / action / risk.\n6. В конце дать короткий план очистки компонентов в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 07_component_duplicates_cleanup.md",
+          "completed": false
+        },
+        {
+          "title": "08_core_components_scope.md",
+          "description": "Определить состав Core Components v1",
+          "targetFile": "08_core_components_scope.md",
+          "sourceFile": "06_component_inventory.md, 07_component_duplicates_cleanup.md, 05_foundations_v1_spec.md",
+          "promptText": "На основе 05_foundations_v1_spec.md, 06_component_inventory.md и 07_component_duplicates_cleanup.md определи состав Core Components v1.\n\nНужно выбрать только базовые компоненты для первой версии дизайн-системы:\n- Button\n- IconButton\n- Input\n- Select\n- Checkbox\n- Tabs\n- Badge\n- Modal\n- Table\n- Tooltip\n\nДля каждого компонента укажи:\n1. зачем нужен;\n2. какие варианты нужны в v1;\n3. какие состояния нужны: default, hover, active, focus, disabled, error, loading;\n4. какие foundations использует;\n5. что не входит в v1.\n\nФормат результата: Markdown.\nНазвание результата: 08_core_components_scope.md",
+          "completed": false
+        },
+        {
+          "title": "09_core_components_build_checklist.md",
+          "description": "Сделать чеклист сборки компонентов в Figma",
+          "targetFile": "09_core_components_build_checklist.md",
+          "sourceFile": "08_core_components_scope.md, 05_foundations_v1_spec.md",
+          "promptText": "На основе 08_core_components_scope.md и 05_foundations_v1_spec.md сделай практический чеклист сборки Core Components v1 в Figma.\n\nДля каждого компонента дай:\n1. порядок сборки;\n2. какие variants/properties создать;\n3. какие states обязательно сделать;\n4. какие tokens подключить;\n5. как назвать компонент;\n6. критерии готовности.\n\nСделай результат в формате рабочего чеклиста, чтобы дизайнер мог идти по нему и собирать компоненты.\n\nФормат результата: Markdown.\nНазвание результата: 09_core_components_build_checklist.md",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Этап 3. Core Components v1",
+      "description": "Собираем первую рабочую версию ключевых компонентов дизайн-системы. Ориентир по сроку: 5–7 рабочих дней.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "10_buttons_component_spec.md",
+          "description": "Спецификация Button и IconButton",
+          "targetFile": "10_buttons_component_spec.md",
+          "sourceFile": "05_foundations_v1_spec.md, 08_core_components_scope.md, COMETAL 2.0",
+          "promptText": "На основе 05_foundations_v1_spec.md, 08_core_components_scope.md и существующих компонентов COMETAL 2.0 собери спецификацию Button и IconButton.\n\nНужно описать:\n1. Button variants: primary, secondary, tertiary/ghost, danger.\n2. Sizes: sm, md, lg, если они нужны.\n3. States: default, hover, active, focus, disabled, loading.\n4. С иконкой / без иконки.\n5. IconButton: sizes, variants, states.\n6. Tokens: цвета, typography, spacing, radius.\n7. Naming в Figma.\n8. Что переносим из текущего COMETAL 2.0, что пересобираем.\n\nФормат результата: Markdown.\nНазвание результата: 10_buttons_component_spec.md",
+          "completed": false
+        },
+        {
+          "title": "11_inputs_selects_component_spec.md",
+          "description": "Спецификация Input, Select, Checkbox",
+          "targetFile": "11_inputs_selects_component_spec.md",
+          "sourceFile": "05_foundations_v1_spec.md, 08_core_components_scope.md, COMETAL 2.0",
+          "promptText": "На основе 05_foundations_v1_spec.md, 08_core_components_scope.md и существующих компонентов COMETAL 2.0 собери спецификацию Input, Select и Checkbox.\n\nНужно описать:\n1. Input: default, filled, focused, error, disabled, readonly, with icon, with helper text.\n2. Select: closed, opened, selected, search, disabled, error, multi-select если нужен.\n3. Checkbox: checked, unchecked, indeterminate, disabled, error если нужен.\n4. Размеры и внутренние отступы.\n5. Typography и colors.\n6. Naming компонентов и variants в Figma.\n7. Что можно взять из текущей страницы компонентов, а что нужно пересобрать.\n\nФормат результата: Markdown.\nНазвание результата: 11_inputs_selects_component_spec.md",
+          "completed": false
+        },
+        {
+          "title": "12_table_component_spec.md",
+          "description": "Спецификация таблиц",
+          "targetFile": "12_table_component_spec.md",
+          "sourceFile": "04_layout_patterns.md, 05_foundations_v1_spec.md, 08_core_components_scope.md, COMETAL 2.0",
+          "promptText": "На основе 04_layout_patterns.md, 05_foundations_v1_spec.md, 08_core_components_scope.md и продуктовых экранов COMETAL 2.0 собери спецификацию Table.\n\nНужно описать:\n1. Table Header.\n2. Table Row.\n3. Cell types: text, number, status, date, actions, checkbox, link, user.\n4. States: hover, selected, disabled, loading, empty, error.\n5. Toolbar над таблицей: search, filters, actions, export/import.\n6. Pagination или infinite scroll, если встречается.\n7. Какие таблицы есть сейчас: платежи, отгрузки, задачи, металлотрейдинг.\n8. Что должно быть компонентом, а что pattern.\n\nФормат результата: Markdown.\nНазвание результата: 12_table_component_spec.md",
+          "completed": false
+        },
+        {
+          "title": "13_overlays_feedback_component_spec.md",
+          "description": "Спецификация Modal, Tooltip, Badge, Tabs",
+          "targetFile": "13_overlays_feedback_component_spec.md",
+          "sourceFile": "05_foundations_v1_spec.md, 08_core_components_scope.md, 04_layout_patterns.md, COMETAL 2.0",
+          "promptText": "На основе 05_foundations_v1_spec.md, 08_core_components_scope.md, 04_layout_patterns.md и текущих экранов COMETAL 2.0 собери спецификацию Modal, Tooltip, Badge и Tabs.\n\nНужно описать:\n1. Modal / Popup: header, content, footer, sizes, confirm/cancel, close behavior.\n2. Tooltip: placement, content, trigger, delay если нужно.\n3. Badge: status, count, label, colors.\n4. Tabs: horizontal tabs, states, disabled, overflow если нужно.\n5. Для каждого компонента описать variants, states, tokens и Figma naming.\n6. Отдельно указать, какие popup-структуры в COMETAL 2.0 нужно заменить единым Modal pattern.\n\nФормат результата: Markdown.\nНазвание результата: 13_overlays_feedback_component_spec.md",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Этап 4. Templates v1",
+      "description": "Собираем 5 базовых шаблонов экранов, на которых будет строиться редизайн: Entity Card, List, Dashboard, Wizard, Kanban. Ориентир по сроку: 5–7 рабочих дней.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "14_entity_card_template_spec.md",
+          "description": "Шаблон Entity Card",
+          "targetFile": "14_entity_card_template_spec.md",
+          "sourceFile": "04_layout_patterns.md, 03_domain_architecture.md, 05_foundations_v1_spec.md, Core Components specs, COMETAL 2.0",
+          "promptText": "На основе 04_layout_patterns.md, 03_domain_architecture.md, foundations и core component specs собери спецификацию шаблона Entity Card.\n\nШаблон должен подходить для: Заявка, Компания, Платёж, Отгрузка, КП.\n\nОпиши:\n1. Назначение шаблона.\n2. Обязательные зоны: entity header, status, primary actions, main info, tabs/sections, related objects, history/activity.\n3. Опциональные зоны: sidebar, timeline, documents, comments, monitoring widgets.\n4. Reusable patterns внутри: Entity Header, Info Block, Related List, Document List, Timeline.\n5. States: loading, empty, error, permission denied, archived.\n6. Примеры из COMETAL 2.0: карточка компании, металлотрейдинг, карточка отгрузки.\n7. Чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 14_entity_card_template_spec.md",
+          "completed": false
+        },
+        {
+          "title": "15_list_workspace_template_spec.md",
+          "description": "Шаблон List Workspace",
+          "targetFile": "15_list_workspace_template_spec.md",
+          "sourceFile": "04_layout_patterns.md, 05_foundations_v1_spec.md, 12_table_component_spec.md, COMETAL 2.0",
+          "promptText": "На основе 04_layout_patterns.md, foundations и table component spec собери спецификацию шаблона List Workspace.\n\nШаблон должен подходить для: списки заявок, компаний, задач, платежей, отгрузок.\n\nОпиши:\n1. Назначение шаблона.\n2. Обязательные зоны: page header, toolbar, filters, table/list, pagination/status.\n3. Опциональные зоны: side filters, bulk actions, import/export, saved views, audit log.\n4. Reusable patterns: Filters Bar, Table Toolbar, Empty State, Bulk Actions.\n5. States: loading, empty, no results, error, permission denied.\n6. Примеры из COMETAL 2.0: импорт платежей, экспорт план-факта, задачи, отгрузки.\n7. Чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 15_list_workspace_template_spec.md",
+          "completed": false
+        },
+        {
+          "title": "16_dashboard_template_spec.md",
+          "description": "Шаблон Dashboard",
+          "targetFile": "16_dashboard_template_spec.md",
+          "sourceFile": "04_layout_patterns.md, 03_domain_architecture.md, COMETAL 2.0",
+          "promptText": "На основе 04_layout_patterns.md, 03_domain_architecture.md и COMETAL 2.0 собери спецификацию шаблона Dashboard.\n\nШаблон должен подходить для: главная, мониторинг компании, аналитика, обзор отгрузок/платежей.\n\nОпиши:\n1. Назначение шаблона.\n2. Обязательные зоны: page header, KPI/widgets area, main content, related lists.\n3. Опциональные зоны: charts, monitoring cards, alerts, quick actions.\n4. Reusable patterns: KPI Widget, Monitoring Widget, Chart Block, Related Objects.\n5. States: loading, empty, partial data, error.\n6. Примеры из COMETAL 2.0: карточка компании, отгрузки, мониторинг.\n7. Чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 16_dashboard_template_spec.md",
+          "completed": false
+        },
+        {
+          "title": "17_wizard_template_spec.md",
+          "description": "Шаблон Wizard / Form Flow",
+          "targetFile": "17_wizard_template_spec.md",
+          "sourceFile": "04_layout_patterns.md, COMETAL 2.0, Core Components specs",
+          "promptText": "На основе 04_layout_patterns.md, core component specs и COMETAL 2.0 собери спецификацию шаблона Wizard / Form Flow.\n\nШаблон должен подходить для: создание заявки, квалификация, импорт платежей, создание отгрузки, назначение ответственных.\n\nОпиши:\n1. Назначение шаблона.\n2. Обязательные зоны: context header, stepper/progress, form content, validation, footer actions.\n3. Опциональные зоны: file upload, side summary, confirmation step, review step.\n4. Reusable patterns: Stepper, Form Section, Validation Summary, Upload Area.\n5. States: draft, validation error, saving, success, failure.\n6. Примеры из COMETAL 2.0: импорт платежей, канбан оплат wizard, металлотрейдинг формы.\n7. Чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 17_wizard_template_spec.md",
+          "completed": false
+        },
+        {
+          "title": "18_kanban_template_spec.md",
+          "description": "Шаблон Kanban",
+          "targetFile": "18_kanban_template_spec.md",
+          "sourceFile": "04_layout_patterns.md, COMETAL 2.0, Карточки канбан",
+          "promptText": "На основе 04_layout_patterns.md, страницы Канбан оплат и Карточки канбан в COMETAL 2.0 собери спецификацию шаблона Kanban.\n\nШаблон должен подходить для: оплаты, очереди задач, процессные доски.\n\nОпиши:\n1. Назначение шаблона.\n2. Обязательные зоны: board header, filters, columns, column header, card, empty column state.\n3. Опциональные зоны: swimlanes, counters, quick actions, drag-and-drop, modal details.\n4. Reusable patterns: Kanban Column, Work Item Card, Status Badge, Quick Actions.\n5. States: loading, empty, overloaded column, permission denied, archived.\n6. Примеры из COMETAL 2.0: канбан оплат.\n7. Чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 18_kanban_template_spec.md",
+          "completed": false
+        },
+        {
+          "title": "19_templates_v1_index.md",
+          "description": "Итоговый индекс Templates v1",
+          "targetFile": "19_templates_v1_index.md",
+          "sourceFile": "14_entity_card_template_spec.md, 15_list_workspace_template_spec.md, 16_dashboard_template_spec.md, 17_wizard_template_spec.md, 18_kanban_template_spec.md",
+          "promptText": "На основе всех template specs собери итоговый индекс Templates v1.\n\nЧто сделать:\n1. Свести 5 шаблонов в одну карту.\n2. Показать, какой шаблон используется для каких продуктовых зон.\n3. Сформировать структуру страницы Figma: TEMPLATES / Entity Card / List Workspace / Dashboard / Wizard / Kanban.\n4. Указать общие reusable patterns между шаблонами.\n5. Дать Definition of Done для Template Layer v1.\n\nФормат результата: Markdown.\nНазвание результата: 19_templates_v1_index.md",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Этап 5. Первые продуктовые экраны v1",
+      "description": "Проверяем Foundations, Components и Templates на реальных экранах: заявка, компания, задачи, платежи. Ориентир по сроку: 1–2 недели.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "20_request_card_v1_spec.md",
+          "description": "Пересобрать карточку заявки v1",
+          "targetFile": "20_request_card_v1_spec.md",
+          "sourceFile": "COMETAL 2.0, 03_domain_architecture.md, 14_entity_card_template_spec.md, Core Components specs",
+          "promptText": "На основе COMETAL 2.0, 03_domain_architecture.md, Entity Card template и core components подготовь спецификацию пересборки Карточки заявки v1.\n\nЧто сделать:\n1. Определить обязательные зоны карточки заявки: header, статус, основные поля, позиции, квалификация, задачи, КП, документы, платежи, отгрузки, история.\n2. Показать, какие зоны идут в первый релиз, а какие позже.\n3. Привязать зоны к компонентам и patterns.\n4. Описать states: новая, в работе, на квалификации, закупка, КП, оплачена, отгружена, архив.\n5. Дать чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 20_request_card_v1_spec.md",
+          "completed": false
+        },
+        {
+          "title": "21_company_card_v1_spec.md",
+          "description": "Пересобрать карточку компании v1",
+          "targetFile": "21_company_card_v1_spec.md",
+          "sourceFile": "COMETAL 2.0, 03_domain_architecture.md, 14_entity_card_template_spec.md, 16_dashboard_template_spec.md",
+          "promptText": "На основе COMETAL 2.0, доменной архитектуры, Entity Card template и Dashboard template подготовь спецификацию пересборки Карточки компании v1.\n\nЧто сделать:\n1. Объединить логику страниц Карточка компании и КАРТОЧКА КОМПАНИИ.\n2. Определить зоны: header, данные компании, мониторинг, контакты, связи, заявки, документы, оплаты, отгрузки, история.\n3. Отметить, какие зоны есть в COMETAL 2.0, а какие нужно уточнить.\n4. Привязать зоны к компонентам и patterns.\n5. Описать states: активная, без данных, с рисками, архивная, permission denied.\n6. Дать чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 21_company_card_v1_spec.md",
+          "completed": false
+        },
+        {
+          "title": "22_tasks_workspace_v1_spec.md",
+          "description": "Пересобрать задачи v1",
+          "targetFile": "22_tasks_workspace_v1_spec.md",
+          "sourceFile": "COMETAL 2.0, 15_list_workspace_template_spec.md, 14_entity_card_template_spec.md, Core Components specs",
+          "promptText": "На основе COMETAL 2.0, List Workspace template и Entity Card template подготовь спецификацию пересборки раздела Задачи v1.\n\nЧто сделать:\n1. Определить основные списки: Мои задачи, Поставленные мной, Доступные мне.\n2. Определить карточку/просмотр задачи.\n3. Определить фильтры, статусы, действия.\n4. Привязать к компонентам: Table/List, Badge, Modal, Button, Filters.\n5. Описать states: empty, overdue, completed, assigned, unassigned, permission denied.\n6. Дать чеклист сборки фрейма в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 22_tasks_workspace_v1_spec.md",
+          "completed": false
+        },
+        {
+          "title": "23_payments_workspace_v1_spec.md",
+          "description": "Пересобрать платежи v1",
+          "targetFile": "23_payments_workspace_v1_spec.md",
+          "sourceFile": "COMETAL 2.0, 15_list_workspace_template_spec.md, 17_wizard_template_spec.md, 18_kanban_template_spec.md",
+          "promptText": "На основе COMETAL 2.0, List Workspace, Wizard и Kanban templates подготовь спецификацию пересборки платежей v1.\n\nЧто сделать:\n1. Разложить платежи на зоны: канбан оплат, импорт платежей, ручное разнесение, экспорт план-факта, карточка/детали платежа.\n2. Определить, какой template используется для каждой зоны.\n3. Привязать зоны к компонентам и patterns.\n4. Описать ключевые states: неразнесённый, в разнесении, исключённый, оплаченный, ошибка импорта, пустой список.\n5. Дать чеклист сборки фреймов в Figma.\n\nФормат результата: Markdown.\nНазвание результата: 23_payments_workspace_v1_spec.md",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Этап 6. Handoff и правила работы",
+      "description": "Фиксируем правила передачи в разработку и рабочий процесс дизайн-отдела, чтобы новые экраны не разваливали систему. Ориентир по сроку: 2–3 рабочих дня.",
+      "status": "not_started",
+      "prompts": [
+        {
+          "title": "24_state_matrix.md",
+          "description": "Собрать матрицу состояний интерфейса",
+          "targetFile": "24_state_matrix.md",
+          "sourceFile": "Templates v1, Core Components specs, COMETAL 2.0",
+          "promptText": "На основе Templates v1, Core Components specs и COMETAL 2.0 собери State Matrix для продуктовых экранов.\n\nНужно описать общие состояния:\n- loading\n- empty\n- no results\n- error\n- disabled\n- readonly\n- permission denied\n- archived\n- success\n- validation error\n\nДля каждого состояния укажи:\n1. где используется;\n2. какие компоненты нужны;\n3. какой текст/паттерн показывать;\n4. что должен видеть разработчик в handoff.\n\nФормат результата: Markdown.\nНазвание результата: 24_state_matrix.md",
+          "completed": false
+        },
+        {
+          "title": "25_handoff_checklist.md",
+          "description": "Чеклист передачи макетов в разработку",
+          "targetFile": "25_handoff_checklist.md",
+          "sourceFile": "Foundations v1, Core Components v1, Templates v1, State Matrix",
+          "promptText": "Собери практический Handoff Checklist для COMETAL.\n\nЧеклист должен проверять, что экран готов к разработке:\n1. экран собран из components и templates;\n2. используются tokens, а не локальные цвета/стили;\n3. описаны states;\n4. описаны роли и ограничения доступа, если они есть;\n5. описаны empty/error/loading;\n6. понятны действия пользователя;\n7. понятны поля данных;\n8. есть ссылка на flow или контекст задачи;\n9. нет локальных одноразовых компонентов без причины.\n\nФормат результата: Markdown.\nНазвание результата: 25_handoff_checklist.md",
+          "completed": false
+        },
+        {
+          "title": "26_design_team_workflow.md",
+          "description": "Правила работы дизайн-команды в Figma",
+          "targetFile": "26_design_team_workflow.md",
+          "sourceFile": "Весь новый пайплайн, COMETAL 2.0, Migration Plan если есть",
+          "promptText": "Собери короткие правила работы дизайн-команды в Figma для редизайна COMETAL.\n\nНужно описать:\n1. где лежат Foundations;\n2. где лежат Components;\n3. где лежат Templates;\n4. где собирать продуктовые экраны;\n5. как называть страницы и фреймы;\n6. когда можно создавать новый компонент;\n7. когда нужно использовать существующий template;\n8. как переводить макет в Ready for Dev;\n9. что отправлять в Archive.\n\nФормат результата: Markdown.\nНазвание результата: 26_design_team_workflow.md",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
