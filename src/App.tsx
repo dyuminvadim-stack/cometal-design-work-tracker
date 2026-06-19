@@ -468,6 +468,7 @@ function App() {
   const [copiedPromptKey, setCopiedPromptKey] = React.useState<string | null>(null);
   const [isExporting, setIsExporting] = React.useState(false);
   const [importStatus, setImportStatus] = React.useState<string | null>(null);
+  const [isMarkdownGuideOpen, setIsMarkdownGuideOpen] = React.useState(false);
   const copiedPromptTimer = React.useRef<number | null>(null);
   const importInputRef = React.useRef<HTMLInputElement | null>(null);
   const showAdminActions = import.meta.env.DEV;
@@ -483,6 +484,21 @@ function App() {
       }
     };
   }, []);
+
+  React.useEffect(() => {
+    if (!isMarkdownGuideOpen) {
+      return undefined;
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setIsMarkdownGuideOpen(false);
+      }
+    }
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isMarkdownGuideOpen]);
 
   const visibleStages = React.useMemo(() => withDerivedStatuses(tracker.stages, expandedPrompts), [expandedPrompts, tracker.stages]);
   const completedCount = visibleStages.filter((stage) => stage.status === 'completed').length;
@@ -700,8 +716,9 @@ function App() {
             <h1>{tracker.name}</h1>
             <p className="intro">{tracker.intro}</p>
           </div>
-          {showAdminActions && (
-            <div className="heroActions">
+          <div className="heroActions">
+            {showAdminActions && (
+              <>
               <input
                 ref={importInputRef}
                 className="importFileInput"
@@ -724,11 +741,12 @@ function App() {
               <button className="btn topActionButton" type="button" onClick={resetState}>
                 Reset
               </button>
-              <button className="btn topActionButton" type="button" disabled={isExporting} aria-busy={isExporting} onClick={() => void exportState()}>
-                {isExporting ? 'Exporting' : 'Export'}
-              </button>
-            </div>
-          )}
+              </>
+            )}
+            <button className="btn topActionButton" type="button" disabled={isExporting} aria-busy={isExporting} onClick={() => void exportState()}>
+              {isExporting ? 'Exporting' : 'Export'}
+            </button>
+          </div>
         </div>
 
         <div className="progressPanel" aria-label="Общий прогресс проекта">
@@ -790,6 +808,72 @@ function App() {
           );
         })}
       </section>
+
+      <footer className="markdownGuideFooter">
+        <button className="btn markdownGuideButton" type="button" onClick={() => setIsMarkdownGuideOpen(true)}>
+          Что делать с Markdown файлами?
+        </button>
+      </footer>
+
+      {isMarkdownGuideOpen && (
+        <div className="guideModalBackdrop" role="presentation" onMouseDown={() => setIsMarkdownGuideOpen(false)}>
+          <section
+            aria-labelledby="markdown-guide-title"
+            aria-modal="true"
+            className="guideModal"
+            role="dialog"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <div className="guideModalHeader">
+              <div>
+                <p className="guideModalEyebrow">Markdown workflow</p>
+                <h2 id="markdown-guide-title">Как Markdown превращается в Figma</h2>
+              </div>
+              <button className="btn guideModalClose" type="button" aria-label="Закрыть" onClick={() => setIsMarkdownGuideOpen(false)}>
+                <i className="bi bi-x-lg" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="guideModalBody">
+              <p>
+                Markdown-файлы в этом трекере — это рабочие спецификации. Мы собираем их по задачам, прикрепляем к карточкам,
+                а затем экспортируем всё одним ZIP-архивом.
+              </p>
+
+              <ol className="guideSteps">
+                <li>
+                  <strong>Markdown audit</strong>
+                  <span>Фиксируем найденные цвета, типографику, отступы, радиусы, тени, иконки, компоненты и шаблоны.</span>
+                </li>
+                <li>
+                  <strong>Markdown spec</strong>
+                  <span>Сводим аудит в решения: token name, value, usage, status и правила применения.</span>
+                </li>
+                <li>
+                  <strong>Figma foundation pages</strong>
+                  <span>По спецификациям собираем страницы Colors, Typography, Spacing, Radius, Shadows и Icons.</span>
+                </li>
+                <li>
+                  <strong>Figma variables and styles</strong>
+                  <span>Переносим утверждённые значения в переменные, стили и документационные блоки дизайн-системы.</span>
+                </li>
+                <li>
+                  <strong>Components, templates, screens</strong>
+                  <span>Используем foundations как базу для компонентов, шаблонов, продуктовых экранов и handoff.</span>
+                </li>
+              </ol>
+
+              <div className="guideOutcome">
+                <h3>Что будет на выходе в Figma</h3>
+                <p>
+                  Структурированные foundation-страницы с раскладкой токенов, визуальными примерами, usage-правилами и списком
+                  решений, которые можно применять при сборке компонентов и экранов.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
     </main>
   );
 }

@@ -696,6 +696,176 @@ h3 {
   margin: 0;
 }
 
+.markdownGuideFooter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 8px;
+}
+
+.markdownGuideButton {
+  background: transparent;
+  border: 1px solid #d7e1ec;
+  border-radius: 999px;
+  color: var(--tracker-muted-strong);
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 42px;
+  padding: 10px 18px;
+  transition:
+    background-color 260ms var(--tracker-ease),
+    border-color 260ms var(--tracker-ease),
+    box-shadow 260ms var(--tracker-ease),
+    color 220ms var(--tracker-ease),
+    transform 260ms var(--tracker-ease);
+}
+
+.markdownGuideButton:hover,
+.markdownGuideButton:focus-visible {
+  background: #ffffff;
+  border-color: #a9c9ff;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.1);
+  color: var(--tracker-accent);
+  transform: translateY(-1px);
+}
+
+.guideModalBackdrop {
+  align-items: center;
+  background: rgba(15, 23, 42, 0.38);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+  z-index: 20;
+}
+
+.guideModal {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: var(--tracker-radius-lg);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.22);
+  max-height: min(760px, calc(100vh - 48px));
+  max-width: 760px;
+  overflow: auto;
+  padding: 28px;
+  width: 100%;
+}
+
+.guideModalHeader {
+  align-items: flex-start;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.guideModalEyebrow {
+  color: var(--tracker-accent);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.guideModalHeader h2 {
+  margin-bottom: 0;
+}
+
+.guideModalClose {
+  align-items: center;
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #475569;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 38px;
+  justify-content: center;
+  padding: 0;
+  width: 38px;
+}
+
+.guideModalClose:hover,
+.guideModalClose:focus-visible {
+  background: var(--tracker-accent);
+  color: #ffffff;
+}
+
+.guideModalBody {
+  display: grid;
+  gap: 22px;
+}
+
+.guideModalBody p {
+  color: #334155;
+  line-height: 1.58;
+  margin: 0;
+}
+
+.guideSteps {
+  counter-reset: guide-step;
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.guideSteps li {
+  background: #f8fafc;
+  border: 1px solid #e5edf5;
+  border-radius: var(--tracker-radius-sm);
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 34px 1fr;
+  padding: 14px 16px;
+}
+
+.guideSteps li::before {
+  align-items: center;
+  background: var(--tracker-soft-blue);
+  border-radius: 999px;
+  color: var(--tracker-accent);
+  content: counter(guide-step);
+  counter-increment: guide-step;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 650;
+  height: 26px;
+  justify-content: center;
+  margin-top: 1px;
+  width: 26px;
+}
+
+.guideSteps strong {
+  color: #17212b;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.guideSteps span {
+  color: var(--tracker-muted);
+  font-size: 14px;
+  grid-column: 2;
+  line-height: 1.5;
+}
+
+.guideOutcome {
+  background: #f3fbf6;
+  border: 1px solid #c8ead4;
+  border-radius: var(--tracker-radius-md);
+  padding: 18px;
+}
+
+.guideOutcome h3 {
+  color: #137044;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
 @keyframes copyTooltipIn {
   from {
     opacity: 0;
@@ -763,5 +933,24 @@ h3 {
 
   .resultDropZone {
     align-items: flex-start;
+  }
+
+  .guideModalBackdrop {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .guideModal {
+    max-height: calc(100vh - 24px);
+    padding: 22px;
+  }
+
+  .guideModalHeader {
+    gap: 12px;
+  }
+
+  .guideSteps li {
+    grid-template-columns: 30px 1fr;
+    padding: 13px;
   }
 }
