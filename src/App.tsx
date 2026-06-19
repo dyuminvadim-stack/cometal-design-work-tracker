@@ -46,14 +46,14 @@ type StoredStage = {
   prompts: StoredPrompt[];
 };
 
-const STORAGE_KEY = 'process-tracker-kit-state-v2';
+const STORAGE_KEY = 'process-tracker-kit-state-v3';
 const LEGACY_STORAGE_KEY = 'cometal-redesign-navigator-state-v3';
 
 const defaultTrackerMeta: Omit<TrackerConfig, 'stages'> = {
-  eyebrow: 'COMETAL design work',
+  eyebrow: 'COMETAL Work',
   exportName: 'cometal-design-work-tracker-export',
   intro: 'Пошаговый трекер работ по дизайн-системе, шаблонам, продуктовым экранам и handoff для COMETAL 2.0.',
-  name: 'COMETAL Design Work Tracker',
+  name: 'Design Tracker',
   taskGroupLabel: 'TASKS',
 };
 
@@ -470,6 +470,7 @@ function App() {
   const [importStatus, setImportStatus] = React.useState<string | null>(null);
   const copiedPromptTimer = React.useRef<number | null>(null);
   const importInputRef = React.useRef<HTMLInputElement | null>(null);
+  const showAdminActions = import.meta.env.DEV;
 
   React.useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(getStoredTracker(tracker)));
@@ -699,33 +700,35 @@ function App() {
             <h1>{tracker.name}</h1>
             <p className="intro">{tracker.intro}</p>
           </div>
-          <div className="heroActions">
-            <input
-              ref={importInputRef}
-              className="importFileInput"
-              type="file"
-              accept="application/json,.json"
-              onChange={(event) => {
-                const file = event.target.files?.[0];
-                if (file) {
-                  void importTrackerPlan(file);
-                }
-                event.target.value = '';
-              }}
-            />
-            <button className="btn topActionButton" type="button" onClick={() => importInputRef.current?.click()}>
-              Import
-            </button>
-            <button className="btn topActionButton" type="button" onClick={restoreDefaultTracker}>
-              Default
-            </button>
-            <button className="btn topActionButton" type="button" onClick={resetState}>
-              Reset
-            </button>
-            <button className="btn topActionButton" type="button" disabled={isExporting} aria-busy={isExporting} onClick={() => void exportState()}>
-              {isExporting ? 'Exporting' : 'Export'}
-            </button>
-          </div>
+          {showAdminActions && (
+            <div className="heroActions">
+              <input
+                ref={importInputRef}
+                className="importFileInput"
+                type="file"
+                accept="application/json,.json"
+                onChange={(event) => {
+                  const file = event.target.files?.[0];
+                  if (file) {
+                    void importTrackerPlan(file);
+                  }
+                  event.target.value = '';
+                }}
+              />
+              <button className="btn topActionButton" type="button" onClick={() => importInputRef.current?.click()}>
+                Import
+              </button>
+              <button className="btn topActionButton" type="button" onClick={restoreDefaultTracker}>
+                Default
+              </button>
+              <button className="btn topActionButton" type="button" onClick={resetState}>
+                Reset
+              </button>
+              <button className="btn topActionButton" type="button" disabled={isExporting} aria-busy={isExporting} onClick={() => void exportState()}>
+                {isExporting ? 'Exporting' : 'Export'}
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="progressPanel" aria-label="Общий прогресс проекта">

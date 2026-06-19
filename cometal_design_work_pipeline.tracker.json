@@ -1,6 +1,6 @@
 {
-  "eyebrow": "COMETAL design work",
-  "name": "COMETAL Design Work Tracker",
+  "eyebrow": "COMETAL Work",
+  "name": "Design Tracker",
   "intro": "Пошаговый трекер работ по дизайн-системе, шаблонам, продуктовым экранам и handoff для COMETAL 2.0.",
   "exportName": "cometal-design-work-tracker-export",
   "taskGroupLabel": "TASKS",
